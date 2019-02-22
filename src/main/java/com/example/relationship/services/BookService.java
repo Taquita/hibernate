@@ -1,6 +1,7 @@
 package com.example.relationship.services;
 
 import com.example.relationship.domains.Book;
+import com.example.relationship.dtos.BookDTO;
 import com.example.relationship.dtos.BookNoIdDTO;
 import com.example.relationship.repositories.BookRepository;
 import org.modelmapper.ModelMapper;
@@ -24,4 +25,10 @@ public class BookService extends GenericService<Book, Long> {
         Book entity = mapper.map(book, Book.class);
         return super.create(entity);
     }
+
+    public Book update(BookDTO book) {
+        Book entity = mapper.map(book, Book.class);
+        return super.update(entity);
+    }
+
 }
