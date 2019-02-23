@@ -33,12 +33,8 @@ public abstract class GenericService<T, ID> {
                 .orElseThrow(() -> new EntityNotFoundException("Entity not found"));
     }
 
-    public List<T> list() {
-        return this.repository.findAll();
-    }
-
-    public Page<T> page(int page, int count, Sort.Direction direction, String property) {
-        return this.repository
-                .findAll(PageRequest.of(page, count, new Sort(direction, property)));
+    public Page<T> pagination(int page, int count, Sort.Direction direction, String property) {
+        return this.repository.
+                findAll(PageRequest.of(page, count, new Sort(direction, property)));
     }
 }

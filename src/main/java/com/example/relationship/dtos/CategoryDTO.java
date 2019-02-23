@@ -2,17 +2,15 @@ package com.example.relationship.dtos;
 
 import lombok.*;
 
-@Getter()
+@Getter
 @Setter
 @ToString
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class BookDTO extends BookNoIdDTO {
+public class CategoryDTO extends CategoryNoIdDTO{
 
     private Long id;
-
-    private CategoryDTO category;
 
 }

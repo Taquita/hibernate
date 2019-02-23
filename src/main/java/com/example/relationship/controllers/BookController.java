@@ -8,11 +8,11 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Api(value = "BookController", description = "Book endpoints")
 @RestController
@@ -28,22 +28,22 @@ public class BookController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ApiOperation(value = "Create Book")
-    public ResponseEntity<Book> createBook(
+    public ResponseEntity<BookDTO> createBook(
             @ApiParam(value = "Book Entity", required = true)
             @RequestBody BookNoIdDTO book
     ) {
-        Book entity = this.bookService.create(book);
-        return new ResponseEntity<Book>(entity, HttpStatus.CREATED);
+        BookDTO entity = this.bookService.create(book);
+        return new ResponseEntity<BookDTO>(entity, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.PUT)
     @ApiOperation(value = "Update Book")
-    public ResponseEntity<Book> updateBook(
+    public ResponseEntity<BookDTO> updateBook(
             @ApiParam(value = "Book Entity", required = true)
             @RequestBody BookDTO book
     ) {
-        Book entity = this.bookService.update(book);
-        return new ResponseEntity<Book>(entity, HttpStatus.OK);
+        BookDTO entity = this.bookService.update(book);
+        return new ResponseEntity<BookDTO>(entity, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -56,16 +56,21 @@ public class BookController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ApiOperation(value = "Get Book by ID")
-    public Book getBook(
+    public BookDTO getBook(
             @ApiParam(value = "Book ID", required = true)
             @PathVariable Long id) {
-        return this.bookService.getById(id);
+        return this.bookService.getOne(id);
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    @ApiOperation(value = "Get Book List")
-    public List<Book> listBook() {
-        return this.bookService.list();
+    @ApiOperation(value = "Get Book with pagination")
+    public Page<BookDTO> pageBook(
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "count", defaultValue = "10") int count,
+            @RequestParam(value = "direction", defaultValue = "ASC") Sort.Direction direction,
+            @RequestParam(value = "property", defaultValue = "id") String property
+    ) {
+        return this.bookService.pagine(page, count, direction, property);
     }
 
 }

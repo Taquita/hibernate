@@ -1,9 +1,9 @@
 package com.example.relationship.domains;
 
-import io.swagger.annotations.ApiModel;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -11,7 +11,6 @@ import javax.persistence.*;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-@ApiModel(value = "Book", description = "Sample book model")
 @Entity
 @Table(name = "book")
 public class Book {
@@ -21,7 +20,16 @@ public class Book {
     @SequenceGenerator(name = "book_generator", sequenceName = "book_seq")
     private Long id;
 
+    @NotNull(message = "Book name can be not null")
+    @Column(name = "name", nullable = false)
     private String name;
 
+    @NotNull(message = "Book description can be not null")
+    @Column(name = "description", nullable = false)
     private String description;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "category", nullable = false)
+    @NotNull(message = "Book category can be not null")
+    private Category category;
 }

@@ -1,5 +1,6 @@
 package com.example.relationship.dtos;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
 @Getter
@@ -10,7 +11,13 @@ import lombok.*;
 @AllArgsConstructor
 public class BookNoIdDTO {
 
+    @ApiModelProperty(value = "Book name", required = true, example = "Wolf Boy")
     private String name;
+
+    @ApiModelProperty(value = "Book description", required = true,
+            example = "History with boy created for wolfs")
     private String description;
+
+    private CategoryNoIdDTO category;
 
 }
