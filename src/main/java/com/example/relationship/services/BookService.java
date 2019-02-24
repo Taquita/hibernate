@@ -1,8 +1,10 @@
 package com.example.relationship.services;
 
 import com.example.relationship.domains.Book;
+import com.example.relationship.domains.Category;
 import com.example.relationship.dtos.BookDTO;
 import com.example.relationship.dtos.BookNoIdDTO;
+import com.example.relationship.mappers.BookMapper;
 import com.example.relationship.repositories.BookRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -18,7 +20,7 @@ import java.util.List;
 public class BookService extends GenericService<Book, Long> {
 
     private final BookRepository repository;
-    private final ModelMapper mapper;
+    private ModelMapper mapper;
 
     @Autowired
     public BookService(BookRepository repository) {
@@ -28,7 +30,10 @@ public class BookService extends GenericService<Book, Long> {
     }
 
     public BookDTO create(BookNoIdDTO book) {
-        Book entity = mapper.map(book, Book.class);
+        ModelMapper mapped = BookMapper.convert(mapper);
+        Book entity = mapped.map(book, Book.class);
+        Category category = mapper.map(book.getCategory(), Category.class);
+        entity.setCategory(category);
         return mapper.map(super.create(entity), BookDTO.class);
     }
 

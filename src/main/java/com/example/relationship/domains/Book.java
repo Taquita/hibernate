@@ -1,6 +1,9 @@
 package com.example.relationship.domains;
 
+import com.example.relationship.dtos.CategoryNoIdDTO;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
+import org.modelmapper.ModelMapper;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -31,5 +34,7 @@ public class Book {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "category", nullable = false)
     @NotNull(message = "Book category can be not null")
+    @JsonManagedReference
     private Category category;
+
 }

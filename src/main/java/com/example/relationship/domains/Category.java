@@ -1,5 +1,6 @@
 package com.example.relationship.domains;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -30,6 +31,7 @@ public class Category {
     private String description;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Book> books;
 
 }
