@@ -32,8 +32,6 @@ public class BookService extends GenericService<Book, Long> {
     public BookDTO create(BookNoIdDTO book) {
         ModelMapper mapped = BookMapper.convert(mapper);
         Book entity = mapped.map(book, Book.class);
-        Category category = mapper.map(book.getCategory(), Category.class);
-        entity.setCategory(category);
         return mapper.map(super.create(entity), BookDTO.class);
     }
 

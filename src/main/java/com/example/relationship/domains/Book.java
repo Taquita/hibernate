@@ -37,4 +37,12 @@ public class Book {
     @JsonManagedReference
     private Category category;
 
+    public void setCategory(CategoryNoIdDTO categoryNoIdDTO) {
+        ModelMapper mapper = new ModelMapper();
+        this.setCategory(mapper.map(categoryNoIdDTO, Category.class));
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
