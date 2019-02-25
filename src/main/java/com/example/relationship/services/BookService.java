@@ -1,7 +1,6 @@
 package com.example.relationship.services;
 
 import com.example.relationship.domains.Book;
-import com.example.relationship.domains.Category;
 import com.example.relationship.dtos.BookDTO;
 import com.example.relationship.dtos.BookNoIdDTO;
 import com.example.relationship.mappers.BookMapper;
