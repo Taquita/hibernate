@@ -29,12 +29,12 @@ public class OrderController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ApiOperation(value = "Creation Order")
-    public ResponseEntity<OrderDTO> createOrder(
+    public ResponseEntity<Order> createOrder(
             @ApiParam(value = "Order Entity", required = true)
             @RequestBody OrderNoIdDTO order
             ) {
-        OrderDTO entity = this.service.create(order);
-        return new ResponseEntity<OrderDTO>(entity, HttpStatus.OK);
+        Order entity = this.service.create(order);
+        return new ResponseEntity<Order>(entity, HttpStatus.OK);
     }
 
 }

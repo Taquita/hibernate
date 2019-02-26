@@ -1,7 +1,6 @@
 package com.example.relationship.domains;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -36,7 +35,7 @@ public class Product {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "[order]")
-    @JsonManagedReference
+    @JsonBackReference
     private Order order;
 
     @CreationTimestamp
