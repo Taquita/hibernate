@@ -2,7 +2,7 @@ package com.example.relationship.services;
 
 import com.example.relationship.domains.Order;
 import com.example.relationship.dtos.OrderNoIdDTO;
-import com.example.relationship.mappers.ProductMapper;
+import com.example.relationship.mappers.OrderMapper;
 import com.example.relationship.repositories.OrderRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -20,8 +20,8 @@ public class OrderService extends GenericService<Order, Long> {
     }
 
     public Order create(OrderNoIdDTO order) {
-        ModelMapper mapped = ProductMapper.convert(mapper);
-        Order entity = mapped.map(order, Order.class);
+//        ModelMapper mapped = OrderMapper.convert(mapper);
+        Order entity = mapper.map(order, Order.class);
         return super.create(entity);
     }
 }

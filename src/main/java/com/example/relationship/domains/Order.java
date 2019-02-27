@@ -1,6 +1,7 @@
 package com.example.relationship.domains;
 
 import com.example.relationship.dtos.ProductNoIdDTO;
+import com.example.relationship.mappers.ProductMapper;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -46,8 +47,8 @@ public class Order implements Serializable {
     @JsonManagedReference
     private List<Product> products;
 
-    public void setProducts(List<ProductNoIdDTO> products) {
-        ModelMapper mapper = new ModelMapper();
+    public void setProductsWithProductNoId(List<ProductNoIdDTO> products) {
+        ModelMapper mapper = ProductMapper.convert(new ModelMapper());
         Type target = new TypeToken<List<Product>>() {}.getType();
         List<Product> productList = mapper.map(products, target);
         this.setProducts(productList);

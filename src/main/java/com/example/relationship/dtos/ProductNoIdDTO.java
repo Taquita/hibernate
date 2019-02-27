@@ -1,5 +1,6 @@
 package com.example.relationship.dtos;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
@@ -18,4 +19,8 @@ public class ProductNoIdDTO {
 
     @ApiModelProperty(value = "Product price", required = true, example = "1500.30")
     private BigDecimal price;
+
+    @JsonBackReference
+    private OrderNoIdDTO order;
+
 }

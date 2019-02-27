@@ -1,6 +1,7 @@
 package com.example.relationship.dtos;
 
 import com.example.relationship.domains.Product;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
@@ -18,6 +19,7 @@ public class OrderNoIdDTO {
     private String user;
 
     @ApiModelProperty(value = "Order products", required = true)
+    @JsonManagedReference
     private List<ProductNoIdDTO> products;
 
 }
