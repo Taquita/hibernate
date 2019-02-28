@@ -1,8 +1,10 @@
 package com.example.relationship.dtos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,4 +20,6 @@ public class ProductDTO extends ProductNoIdDTO {
 
     private Date updatedAt;
 
+    @JsonIgnore
+    private OrderNoIdDTO order;
 }

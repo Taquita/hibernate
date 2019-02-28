@@ -1,6 +1,5 @@
 package com.example.relationship.dtos;
 
-import com.example.relationship.domains.Product;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
@@ -10,13 +9,10 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderNoIdDTO {
-
-    @ApiModelProperty(value = "Order user", required = true, example = "John Alex")
-    private String user;
+public class OrderNoIdDTO extends OrderPropertiesDTO {
 
     @ApiModelProperty(value = "Order products", required = true)
     @JsonManagedReference
