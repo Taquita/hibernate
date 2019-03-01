@@ -1,6 +1,7 @@
-package com.example.relationship.dtos;
+package com.example.relationship.models.book;
 
-import com.example.relationship.domains.Category;
+import com.example.relationship.models.category.CategoryDTO;
+import com.example.relationship.models.category.Category;
 import lombok.*;
 import org.modelmapper.ModelMapper;
 

@@ -1,4 +1,4 @@
-package com.example.relationship.dtos;
+package com.example.relationship.models.order;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
@@ -9,7 +9,7 @@ import lombok.*;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-abstract class OrderPropertiesDTO {
+abstract class OrderProperties {
 
     @ApiModelProperty(value = "Order user", required = true, example = "John Alex")
     private String user;

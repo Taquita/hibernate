@@ -1,4 +1,4 @@
-package com.example.relationship.dtos;
+package com.example.relationship.models.category;
 
 import lombok.*;
 

@@ -1,5 +1,6 @@
-package com.example.relationship.domains;
+package com.example.relationship.models.category;
 
+import com.example.relationship.models.book.Book;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 

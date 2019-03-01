@@ -1,5 +1,6 @@
-package com.example.relationship.domains;
+package com.example.relationship.models.product;
 
+import com.example.relationship.models.order.Order;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

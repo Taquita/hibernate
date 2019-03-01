@@ -1,8 +1,8 @@
 package com.example.relationship.services;
 
-import com.example.relationship.domains.Book;
-import com.example.relationship.dtos.BookDTO;
-import com.example.relationship.dtos.BookNoIdDTO;
+import com.example.relationship.models.book.Book;
+import com.example.relationship.models.book.BookDTO;
+import com.example.relationship.models.book.BookNoIdDTO;
 import com.example.relationship.mappers.BookMapper;
 import com.example.relationship.repositories.BookRepository;
 import org.modelmapper.ModelMapper;

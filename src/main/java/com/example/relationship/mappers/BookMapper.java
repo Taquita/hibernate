@@ -1,9 +1,9 @@
 package com.example.relationship.mappers;
 
-import com.example.relationship.domains.Book;
-import com.example.relationship.dtos.BookDTO;
-import com.example.relationship.dtos.BookNoIdDTO;
-import com.example.relationship.dtos.CategoryDTO;
+import com.example.relationship.models.book.Book;
+import com.example.relationship.models.book.BookDTO;
+import com.example.relationship.models.book.BookNoIdDTO;
+import com.example.relationship.models.category.CategoryDTO;
 import org.modelmapper.ModelMapper;
 
 public class BookMapper {

@@ -1,6 +1,7 @@
-package com.example.relationship.domains;
+package com.example.relationship.models.book;
 
-import com.example.relationship.dtos.CategoryNoIdDTO;
+import com.example.relationship.models.category.CategoryNoIdDTO;
+import com.example.relationship.models.category.Category;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.modelmapper.ModelMapper;

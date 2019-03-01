@@ -1,8 +1,7 @@
 package com.example.relationship.controllers;
 
-import com.example.relationship.domains.Book;
-import com.example.relationship.dtos.BookDTO;
-import com.example.relationship.dtos.BookNoIdDTO;
+import com.example.relationship.models.book.BookDTO;
+import com.example.relationship.models.book.BookNoIdDTO;
 import com.example.relationship.services.BookService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

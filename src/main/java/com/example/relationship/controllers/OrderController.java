@@ -1,8 +1,8 @@
 package com.example.relationship.controllers;
 
-import com.example.relationship.domains.Order;
-import com.example.relationship.dtos.OrderDTO;
-import com.example.relationship.dtos.OrderNoIdDTO;
+import com.example.relationship.models.order.OrderReturnDTO;
+import com.example.relationship.models.order.OrderCreateDTO;
+import com.example.relationship.models.order.OrderUpdateDTO;
 import com.example.relationship.services.OrderService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,12 +29,22 @@ public class OrderController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ApiOperation(value = "Creation Order")
-    public ResponseEntity<OrderDTO> createOrder(
+    public ResponseEntity<OrderReturnDTO> createOrder(
             @ApiParam(value = "Order Entity", required = true)
-            @RequestBody OrderNoIdDTO order
-            ) {
-        OrderDTO entity = this.service.create(order);
-        return new ResponseEntity<OrderDTO>(entity, HttpStatus.OK);
+            @RequestBody OrderCreateDTO order
+    ) {
+        OrderReturnDTO entity = this.service.create(order);
+        return new ResponseEntity<OrderReturnDTO>(entity, HttpStatus.CREATED);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT)
+    @ApiOperation(value = "Update Order")
+    public ResponseEntity<OrderReturnDTO> updateOrder(
+            @ApiParam(value = "Order Entity", required = true)
+            @RequestBody OrderUpdateDTO order
+    ) {
+        OrderReturnDTO entity = this.service.update(order);
+        return new ResponseEntity<OrderReturnDTO>(entity, HttpStatus.OK);
     }
 
 }

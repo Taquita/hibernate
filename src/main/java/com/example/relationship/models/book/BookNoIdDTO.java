@@ -1,5 +1,6 @@
-package com.example.relationship.dtos;
+package com.example.relationship.models.book;
 
+import com.example.relationship.models.category.CategoryNoIdDTO;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 

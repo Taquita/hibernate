@@ -1,17 +1,14 @@
-package com.example.relationship.domains;
+package com.example.relationship.models.order;
 
-import com.example.relationship.dtos.ProductNoIdDTO;
+import com.example.relationship.models.product.Product;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.lang.reflect.Type;
 import java.util.Date;
 import java.util.List;
 
@@ -35,7 +32,7 @@ public class Order implements Serializable {
     private String user;
 
     @CreationTimestamp
-    @Column(name = "[createdAt]")
+    @Column(name = "[createdAt]", updatable = false)
     private Date createdAt;
 
     @UpdateTimestamp
