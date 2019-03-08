@@ -44,7 +44,7 @@ public class BookService extends GenericService<Book, Long> {
     }
 
     public Page<BookDTO> pagine(int page, int count, Sort.Direction direction, String property) {
-        Type listType = new TypeToken<List<BookDTO>>() {}.getType();
-        return mapper.map(super.pagination(page, count, direction, property), listType);
+        return super.pagination(page, count, direction, property)
+                .map(book -> mapper.map(book, BookDTO.class));
     }
 }
