@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>relationship</artifactId>
+    <artifactId>hibernate</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>relationship</name>
+    <name>hibernate</name>
     <description>Training JPA relationship in with spring-data</description>
 
     <properties>
