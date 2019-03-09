@@ -32,7 +32,7 @@ public class BookController {
             @RequestBody BookNoIdDTO book
     ) {
         BookDTO entity = this.bookService.create(book);
-        return new ResponseEntity<BookDTO>(entity, HttpStatus.CREATED);
+        return new ResponseEntity<>(entity, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.PUT)
@@ -42,7 +42,7 @@ public class BookController {
             @RequestBody BookDTO book
     ) {
         BookDTO entity = this.bookService.update(book);
-        return new ResponseEntity<BookDTO>(entity, HttpStatus.OK);
+        return new ResponseEntity<>(entity, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -64,10 +64,10 @@ public class BookController {
     @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "Get Book with pagination")
     public Page<BookDTO> pageBook(
-            @RequestParam(value = "page", defaultValue = "0") int page,
-            @RequestParam(value = "count", defaultValue = "10") int count,
-            @RequestParam(value = "direction", defaultValue = "ASC") Sort.Direction direction,
-            @RequestParam(value = "property", defaultValue = "id") String property
+                @RequestParam(value = "page", defaultValue = "0") int page,
+                @RequestParam(value = "count", defaultValue = "10") int count,
+                @RequestParam(value = "direction", defaultValue = "ASC") Sort.Direction direction,
+                @RequestParam(value = "property", defaultValue = "id") String property
     ) {
         return this.bookService.pagine(page, count, direction, property);
     }
